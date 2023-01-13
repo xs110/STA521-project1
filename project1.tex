@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,float,amsfonts,enumitem,tcolorbox}
+
+\include{macros}
+
+
+\title{STA 521: Project 1 Redwood Data}
+\author{Xinyi Sheng(xs110) Yucan Zeng(yc808)}
+\date{}
+
+\usepackage{Sweave}
+\begin{document}
+\input{project1-concordance}
+
+
+ <<>>=
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+require(tibble)
+library(hrbrthemes)
+library(scales)
+library(units)
+library(hablar)
+library(ggcorrplot)
+library(plotly)
+library(ClusterR)
+library(ggpubr)
+library(maditr)
+
+\begin{Schunk}
+\begin{Sinput}
+> #read data
+> df_all = read.csv("data/sonoma-data-all.csv",header=TRUE,stringsAsFactors=FALSE)
+> df_loc = read.csv('data/mote-location-data.txt',header=TRUE,stringsAsFactors=FALSE,sep='')
+> # df_all$result_date = format(as.POSIXct(df_all$result_time), format="%Y-%m-%d")
+> # df_all$result_second = format(as.POSIXct(df_all$result_time), format="%H:%M:%S")
+> df_net = read.csv("data/sonoma-data-net.csv",header=TRUE,stringsAsFactors=FALSE)
+> df_log = read.csv("data/sonoma-data-log.csv",header=TRUE,stringsAsFactors=FALSE)
+> #change dataframe to tibble
+> df_all = tibble(df_all)

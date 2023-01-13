@@ -1,1 +1,1 @@
-# STA521-project1
+# STA-521-Project-1
